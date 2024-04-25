@@ -36,9 +36,9 @@ link1_status=$(curl -Is https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=
 link2_status=$(curl -Is https://archive.org/download/en_windows_server_2022x64_dvd_/en_windows_server_2022x64_dvd_.iso | grep HTTP | cut -f2 -d" ")
 #sudo wget -P /mediabots https://archive.org/download/WS2012R2/WS2012R2.ISO # Windows Server 2012 R2 
 if [ $link1_status = "200" ] ; then 
-	sudo wget -O /mediabots/2022.ISO https://archive.org/download/en_windows_server_2022x64_dvd_/en_windows_server_2022x64_dvd_.iso 
+	sudo wget -O /mediabots/2022.ISO https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US 
 elif [ $link2_status = "200" -o $link2_status = "301" -o $link2_status = "302" ] ; then 
-	sudo wget -P /mediabots https://archive.org/download/en_windows_server_2022x64_dvd_/en_windows_server_2022x64_dvd_.iso
+	sudo wget -P /mediabots https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US
 else
 	echo -e "${RED}[Error]${NC} ${YELLOW}Sorry! None of Windows OS image urls are available , please report about this issue on Github page : ${NC}https://github.com/mediabots/Linux-to-Windows-with-QEMU"
 	echo "Exiting.."
